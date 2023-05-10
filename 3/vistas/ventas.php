@@ -115,79 +115,94 @@
                     </h5> -->
 
                     <div class="card-body p-2">
+<!-- SELECCIONAR TIPO DE DOCUMENTO -->
+<div class="form-group mb-2">
+    <label class="col-form-label p-0" for="selCategoriaReg">
+        <i class="fas fa-file-alt fs-6"></i>
+        <span class="small">Documento</span><span class="text-danger">*</span>
+    </label>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selDocumentoVenta">
+        <option value="0">Seleccione Documento</option>
+        <option value="1" selected="true">Boleta</option>
+        <option value="2">Factura</option>
+    </select>
+    <span id="validate_categoria" class="text-danger small fst-italic" style="display:none">
+        Debe Seleccione documento
+    </span>
+</div>
 
-                        <!-- SELECCIONAR TIPO DE DOCUMENTO -->
-                        <div class="form-group mb-2">
+<!-- RFC (Visible solo cuando Factura se escoge) -->
+<div class="form-group mb-2" id="divRFC" style="display:none;">
+    <label class="col-form-label p-0" for="iptRFC">
+        <span class="small">RFC</span><span class="text-danger">*</span>
+    </label>
+    <input type="text" name="iptRFC" id="iptRFC" class="form-control form-control-sm" placeholder="RFC">
+</div>
 
-                            <label class="col-form-label p-0" for="selCategoriaReg">
-                                <i class="fas fa-file-alt fs-6"></i>
-                                <span class="small">Documento</span><span class="text-danger">*</span>
-                            </label>
+<!-- USO CFDI (Visible solo cuando Factura se escoge) -->
+<div class="form-group mb-2" id="divUsoCFDI" style="display:none;">
+    <label class="col-form-label p-0" for="selUsoCFDI">
+        <span class="small">Uso CFDI</span><span class="text-danger">*</span>
+    </label>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selUsoCFDI">
+        <option value="">Seleccione Uso CFDI</option>
+        <option value="G01">Adquisición de mercancias</option>
+        <option value="G02">Devoluciones, descuentos o bonificaciones</option>
+        <option value="G03">Gastos en general</option>
+        <option value="I01">Construcciones</option>
+        <option value="I02">Mobilario y equipo de oficina por inversiones</option>
+        <option value="I03">Equipo de transporte</option>
+        <option value="I04">Equipo de computo y accesorios</option>
+        <option value="I05">Dados, troqueles, moldes, matrices y herramental</option>
+        <option value="I06">Comunicaciones telefónicas</option>
+        <option value="I07">Comunicaciones satelitales</option>
+        <option value="I08">Otra maquinaria y equipo</option>
+        <option value="P01">Por definir</option>
+    </select>
+    <span id="validate_categoria" class="text-danger small fst-italic" style="display:none">
+        Debe seleccionar Uso CFDI
+    </span>
+</div>
 
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selDocumentoVenta" disabled>
-                                <option value="0">Seleccione Documento</option>
-                                <option value="1" selected="true">Boleta</option>
-                                <option value="2">Factura</option>
-                                <option value="3">Ticket</option>
-                            </select>
 
-                            <span id="validate_categoria" class="text-danger small fst-italic" style="display:none">
-                                Debe Seleccione documento
-                            </span>
+<!-- SELECCIONAR TIPO DE PAGO -->
+<div class="form-group mb-2">
+    <label class="col-form-label p-0" for="selCategoriaReg">
+        <i class="fas fa-money-bill-alt fs-6"></i>
+        <span class="small">Tipo Pago</span><span class="text-danger">*</span>
+    </label>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selTipoPago">
+        <option value="0">Seleccione Tipo Pago</option>
+        <option value="1" selected="true">Efectivo</option>
+        <option value="2">Tarjeta</option>
+        <option value="3">CODI</option>
+        <option value="4">Transferencia</option>
+    </select>
+    <span id="validate_categoria" class="text-danger small fst-italic" style="display:none">
+        Debe Ingresar tipo de pago
+    </span>
+</div>
 
-                        </div>
+<!-- SERIE Y NRO DE BOLETA -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-4">
+            <label for="iptNroSerie" class="p-0 m-0">Serie</label>
+            <input type="text" min="0" name="iptEfectivo" id="iptNroSerie" class="form-control form-control-sm" placeholder="nro Serie" disabled>
+        </div>
+        <div class="col-md-8">
+            <label for="iptNroVenta" class="p-0 m-0">Correlativo</label>
+            <input type="text" min="0" name="iptEfectivo" id="iptNroVenta" class="form-control form-control-sm" placeholder="Nro Venta" disabled>
+        </div>
+    </div>
+</div>
 
-                        <!-- SELECCIONAR TIPO DE PAGO -->
-                        <div class="form-group mb-2">
+<!-- INPUT DE EFECTIVO ENTREGADO -->
+<div class="form-group">
+    <label for="iptEfectivoRecibido" class="p-0 m-0">Efectivo recibido</label>
+    <input type="number" min="0" name="iptEfectivo" id="iptEfectivoRecibido" class="form-control form-control-sm" placeholder="Cantidad de efectivo recibida">
+</div>
 
-                            <label class="col-form-label p-0" for="selCategoriaReg">
-                                <i class="fas fa-money-bill-alt fs-6"></i>
-                                <span class="small">Tipo Pago</span><span class="text-danger">*</span>
-                            </label>
-
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selTipoPago">
-                                <option value="0">Seleccione Tipo Pago</option>
-                                <option value="1" selected="true">Efectivo</option>
-                                <option value="2">Tarjeta</option>
-                                <option value="3">CODI</option>
-                                <option value="4">Transferencia</option>
-                            </select>
-
-                            <span id="validate_categoria" class="text-danger small fst-italic" style="display:none">
-                                Debe Ingresar tipo de pago
-                            </span>
-
-                        </div>
-
-                        <!-- SERIE Y NRO DE BOLETA -->
-                        <div class="form-group">
-
-                            <div class="row">
-
-                                <div class="col-md-4">
-
-                                    <label for="iptNroSerie" class="p-0 m-0">Serie</label>
-
-                                    <input type="text" min="0" name="iptEfectivo" id="iptNroSerie" class="form-control form-control-sm" placeholder="nro Serie" disabled>
-                                </div>
-
-                                <div class="col-md-8">
-
-                                    <label for="iptNroVenta" class="p-0 m-0">Correlativo</label>
-
-                                    <input type="text" min="0" name="iptEfectivo" id="iptNroVenta" class="form-control form-control-sm" placeholder="Nro Venta" disabled>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <!-- INPUT DE EFECTIVO ENTREGADO -->
-                        <div class="form-group">
-                            <label for="iptEfectivoRecibido" class="p-0 m-0">Efectivo recibido</label>
-                            <input type="number" min="0" name="iptEfectivo" id="iptEfectivoRecibido" class="form-control form-control-sm" placeholder="Cantidad de efectivo recibida">
-                        </div>
 
                         <!-- INPUT CHECK DE EFECTIVO EXACTO -->
                         <div class="form-check">
@@ -266,6 +281,27 @@
     </div>
 
 </div>
+
+<script>
+    // Obtener elementos
+    const selDocumento = document.getElementById('selDocumentoVenta');
+    const divRFC = document.getElementById('divRFC');
+    const divUsoCFDI = document.getElementById('divUsoCFDI');
+
+    // Listener de documento
+    selDocumento.addEventListener('change', function() {
+        const selectedValue = selDocumento.value;
+
+        // Muestra/Esconde el campo RFC y USO de CFDI en el menu segun la seleccion hecha
+        if (selectedValue === '2') { // "Factura" seleccionada
+            divRFC.style.display = 'block';
+            divUsoCFDI.style.display = 'block';
+        } else { // Si se elige otra opcion
+            divRFC.style.display = 'none';
+            divUsoCFDI.style.display = 'none';
+        }
+    });
+</script>
 
 <script>
     var table;
@@ -1051,26 +1087,12 @@
 
                         LimpiarInputs();
 
-                        CargarNroBoleta();
+                        CargarNroBoleta()
+                        window.open('http://localhost/crisis%20existencial/3/vistas/generar_ticket.php?nro_boleta=' + nro_boleta);
 
-                        window.open('http://localhost/crisis%20existencial/3/vistas/generar_ticket.php?nro_boleta='+nro_boleta);
-
-                    }
-                });
-
-
-            } else {
-
-                mensajeToast('error', 'INGRESE EL MONTO EN EFECTIVO');
-            }
-
-        } else {
-
-            mensajeToast('error', 'NO HAY PRODUCTOS EN EL LISTADO');
-
+                }
+            });
         }
-
-        $("#iptCodigoVenta").focus();
-
-    } /* FIN realizarVenta */
+    }
+}
 </script>
